@@ -1,12 +1,13 @@
 :root {
   --main-bg-color: #262626;
   --main-blocks-bg-color:rgba(0, 0, 0, 0.5);
-  --main-font-color:white;
+  --main-font-color:rgba(96, 96, 96, 0.8);
   --main-font-color-shadow:rgba(255,255,255, 0.8);
   --main-accents-colors:#ff781f;
   --main-shadows-colors:rgba(255, 120, 31, 0.8);
   --main-font:'Poppins', sans-serif;;
   --main--font-gray-color:rgba(96, 96, 96, 0.8);
+  --main--font-gray-color-stronger:rgb(96, 96, 96);
 }
 
 * {
@@ -14,87 +15,60 @@
   padding: 0;
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
-   box-sizing: border-box; 
+  box-sizing: border-box; 
 }
 
 body {
   font-family: var(--main-font);
+  background-color: var(--main-bg-color);
   
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  overflow: hidden;
 }
 
 /*------- APP-WRAP -------*/
 .app-wrap {
   width: 100%;
   height: 100vh;
+
   display: flex;
   align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  
-  background-color: var(--main-bg-color);
+  flex-wrap: wrap-reverse;
+
   color: var(--main-font-color);
 }
   
 /*------- HEADER -------*/
 .app-wrap .header {
-  height: 10vh;
-  width: 90%;
+  width: 100vw;
+  height: 15vh;
+
   text-align: center;
-  justify-content: center;
-  
+  justify-content: flex-start;
+
   border-radius: 16px;
-    
-  display: flex;
-  flex-direction: row;
-}
-.app-wrap .header > div {
-  width:25%;
-  height:60%;
-    
-  align-items:center;
-  justify-content:center;
-  border-radius:25px;
-  margin:10px;
-    
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.app-wrap .header > div > div {
-  width: 50%;
-  margin-right: 10px;
-}
-.app-wrap .header .main {
-  width:50%;
-  height:60%;
   
-  align-items:center;
-  justify-content:center;
-  border-radius:25px;
-} 
-.app-wrap .header .left {
   display: flex;
-  flex-direction: row;
-                
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+
+  color:white;
+  padding-left: 20vw;
+  padding-top: 2vh;
 }
-.app-wrap .header > div form input[type="submit"] {
+
+.app-wrap .header form input[type="submit"] {
   border:none;
   background-color:rgba(0, 0, 0, 0.0);
   color:white;
   font-size: 2.0em;
+
   font-family: var(--main-font);
 
   transition: 0.5s;
 }
-.app-wrap .header > div form input[type="submit"].btn:hover {
+.app-wrap .header form input[type="submit"].btn:hover {
   color:var(--main-accents-colors);
   transition: 0.5s;
 }
@@ -103,17 +77,152 @@ body {
 .app-wrap .readForm
 {
   width: 40%;
-  height: 80vh;
-  
+  height: 20vh;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+/*------- TEXT -------*/
+.app-wrap .readForm .text
+{
+  width: 100%;
+  min-height: 15vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3vh;
+
+  margin-bottom: 1%;
+
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 0.4vw;
+}
+
+/*------- TEXT SCROLLBAR -------*/
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main--font-gray-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-accents-colors);
+}
+
+
+.app-wrap .readForm .text div
+{
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+.app-wrap .readForm .download-form
+{
+  width: 100%;
+  height: 10vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+.app-wrap .readForm .download-form input[type=submit]
+{
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.0);
+  border:none;
+  
+  border-radius: 5px;
+  width: 30%;
+  color:var(--main--font-gray-color-stronger);
+  
+  font-weight: bold;
+  
+  transition: 0.5s;
+}
+.app-wrap .readForm .download-form input[type=submit]:hover
+{
+  color:var(--main-accents-colors);
+  background-color: var(--main-blocks-bg-color);
+  
+  transition: 0.5s;
+}
 
+/*------- INFORMATION -------*/
+.app-wrap .info {
+  width: 30%;
+  height: 55vh;
+
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.app-wrap .info button {
+  border: none;
+  background-color: transparent;
+  color:var(--main-font-color);
+  font-size: 1.0em;
+
+  outline: none;
+}
+
+.app-wrap .info .problem-form {
+  width: 60%;
+  margin-top: 3vh;
+
+  font-size: 0.9em;
+
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.app-wrap .info .problem-form div input, textarea{
+  border:none;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color:var(--main-font-color);
+
+  font-family: var(--main-font);
+
+  width: 100%;
+  max-width: 100%;
+  max-height: 30vh;
+
+  overflow-x: hidden;
+}
+.app-wrap .info .problem-form div input::placeholder, textarea{
+  color:var(--main-font-color);
+}
+.app-wrap .info .problem-form div input:focus, textarea:focus{
+  outline:none !important;
+}
+/*-------- PROBLEM FORM SCROLLBAR --------*/
+.app-wrap .info .problem-form div textarea::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.0);
+}
+.app-wrap .info .problem-form div textarea::-webkit-scrollbar-thumb {
+  background: var(--main--font-gray-color);
+}
+.app-wrap .info .problem-form div textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--main-accents-colors);
 }
 
 /*------- FOOTER -------*/
 .app-wrap .footer {
-  width: 90%;
+  width: 90%; 
   height: 10vh;
 
   display: flex;

@@ -11,29 +11,22 @@
 
         <div class="app-wrap">
 
-            <div class="header">
-                <div style="font-size: 2.0em;">
-                    image wizard
-                </div>
-
-                <div>
-
-                </div>
-
-                <div>
-
-                </div>
+            <div class="header" style="font-size: 2.0em;">
+                image wizard
             </div>
 
             <div class="readForm">
 
+                <!-- INPUT FILE IMAGE -->
+                <div class="extensionWarning" id="extension_warning">
+                    extension .. is not supported
+                </div>
+                
                 <!--<div class="droparea">Drop your file here</div>-->
                 <form action="/read-image/" onsubmit="return onSubmit();" method="post" name="read-image" enctype="multipart/form-data">
                     <div class="image-form">
-
-                        <!-- INPUT FILE IMAGE -->
                         <div class="chooseImage">
-                            <input value="Choose your file" onchange="updateValue()" type="file" name="file" id="file-upload" accept="image/*">                        
+                            <input value="Choose your file" onchange="updateValue()" type="file" name="file" id="file-upload">                        
                             <label for="file-upload"><img src="../static/img/add image.png">&nbspchoose a image</label>                        
                         </div>
 
@@ -64,7 +57,7 @@
                 <div>What kind of files supports?</div><br>
                 <p>
                     <ul>
-                        <li><span>png, jpg, jpeg</span></li>                    
+                        <li><span>png, jpg, jpeg, pdf</span></li>
                     </ul>
                 </p>
             </div>  
