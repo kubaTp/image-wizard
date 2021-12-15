@@ -5,9 +5,10 @@
   --main-font-color-shadow:rgba(255,255,255, 0.8);
   --main-accents-colors:#ff781f;
   --main-shadows-colors:rgba(255, 120, 31, 0.8);
-  --main-font:'Poppins', sans-serif;;
+  --main-font:'Poppins', sans-serif;
+  /*--main-font: 'Roboto Mono', monospace;*/
   --main--font-gray-color:rgba(96, 96, 96, 0.8);
-  --main--font-gray-color-stronger:rgb(96, 96, 96);
+  --main--font-gray-color-stronger:rgba(96, 96, 96, 1.0);
 }
 
 * {
@@ -27,11 +28,10 @@ body {
 
   overflow: hidden;
 }
-
 /*------- APP-WRAP -------*/
 .app-wrap {
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  height: 100%;
 
   display: flex;
   align-items: center;
@@ -41,10 +41,33 @@ body {
   color: var(--main-font-color);
 }
   
+.app-wrap .bg {
+  width: 100vw;
+  height: 100vh;
+
+  position:absolute;
+  background-color: rgba(96, 96, 96, 0.2);
+  backdrop-filter: blur(5px); 
+
+  transition: 0.25s ease-in-out;
+
+  visibility: hidden;
+  opacity: 0;
+}
+.app-wrap .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 70vh;
+}
+
 /*------- HEADER -------*/
 .app-wrap .header {
   width: 100vw;
-  height: 15vh;
+  height: 20vh;
 
   text-align: center;
   justify-content: flex-start;
@@ -72,12 +95,30 @@ body {
   color:var(--main-accents-colors);
   transition: 0.5s;
 }
+
+.app-wrap .main .full-win-but {
+  width: 10vw;
+  transition: 0.5s;
+
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.0);
+  border:none;
   
+  border-radius: 5px;
+  color:var(--main--font-gray-color-stronger);
+  
+  font-weight: bold;
+}
+.app-wrap .main .full-win-but:hover{
+  color:var(--main-accents-colors);
+  background-color: var(--main-blocks-bg-color);
+}
+
 /*------- READFORM -------*/
-.app-wrap .readForm
+.app-wrap .main .readForm
 {
   width: 40%;
-  height: 20vh;
+  height: 25vh;
 
   display: flex;
   flex-direction: column;
@@ -86,22 +127,25 @@ body {
 }
 
 /*------- TEXT -------*/
-.app-wrap .readForm .text
+.app-wrap .main .readForm .text
 {
   width: 100%;
   min-height: 15vh;
+  max-height: 20vh;
 
   display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 3vh;
-
-  margin-bottom: 1%;
+  justify-content: center;
+  padding: 1vh;
 
   overflow-y: auto;
+
+  text-overflow: ellipsis;
+  white-space: pre-line;
+
+  color:var(--main--font-gray-color-stronger);
+
+  margin-bottom: 1vh;
 }
 ::-webkit-scrollbar {
   width: 0.4vw;
@@ -118,14 +162,13 @@ body {
   background: var(--main-accents-colors);
 }
 
-
-.app-wrap .readForm .text div
+.app-wrap .main .readForm .text div
 {
   text-align: justify;
   word-wrap: break-word;
 }
 
-.app-wrap .readForm .download-form
+.app-wrap .main .readForm .download-form
 {
   width: 100%;
   height: 10vh;
@@ -135,7 +178,7 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-.app-wrap .readForm .download-form input[type=submit]
+.app-wrap .main .readForm .download-form input[type=submit]
 {
   padding: 5px;
   background-color: rgba(0, 0, 0, 0.0);
@@ -149,7 +192,7 @@ body {
   
   transition: 0.5s;
 }
-.app-wrap .readForm .download-form input[type=submit]:hover
+.app-wrap .main .readForm .download-form input[type=submit]:hover
 {
   color:var(--main-accents-colors);
   background-color: var(--main-blocks-bg-color);
@@ -157,10 +200,11 @@ body {
   transition: 0.5s;
 }
 
+
 /*------- INFORMATION -------*/
-.app-wrap .info {
+.app-wrap .main .info {
   width: 30%;
-  height: 55vh;
+  height: 45vh;
 
   border-radius: 15px;
 
@@ -170,7 +214,7 @@ body {
   align-items: center;
   text-align: center;
 }
-.app-wrap .info button {
+.app-wrap .main .info button {
   border: none;
   background-color: transparent;
   color:var(--main-font-color);
@@ -179,7 +223,7 @@ body {
   outline: none;
 }
 
-.app-wrap .info .problem-form {
+.app-wrap .main .info .problem-form {
   width: 60%;
   margin-top: 3vh;
 
@@ -189,7 +233,7 @@ body {
   transition: 0.5s;
 }
 
-.app-wrap .info .problem-form div input, textarea{
+.app-wrap .main  .info .problem-form div input, textarea{
   border:none;
   background-color: rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -199,31 +243,73 @@ body {
 
   width: 100%;
   max-width: 100%;
+
   max-height: 30vh;
 
   overflow-x: hidden;
 }
-.app-wrap .info .problem-form div input::placeholder, textarea{
+.app-wrap .main .info .problem-form div input::placeholder, textarea{
   color:var(--main-font-color);
 }
-.app-wrap .info .problem-form div input:focus, textarea:focus{
+.app-wrap .main .info .problem-form div input:focus, textarea:focus{
   outline:none !important;
 }
+
+.app-wrap .main .info .problem-form div textarea{
+  height: 10vh;
+}
+
 /*-------- PROBLEM FORM SCROLLBAR --------*/
-.app-wrap .info .problem-form div textarea::-webkit-scrollbar-track {
+.app-wrap .main .info .problem-form div textarea::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.0);
 }
-.app-wrap .info .problem-form div textarea::-webkit-scrollbar-thumb {
+.app-wrap .main .info .problem-form div textarea::-webkit-scrollbar-thumb {
   background: var(--main--font-gray-color);
 }
-.app-wrap .info .problem-form div textarea::-webkit-scrollbar-thumb:hover {
+.app-wrap .main .info .problem-form div textarea::-webkit-scrollbar-thumb:hover {
   background: var(--main-accents-colors);
 }
 
+/*------- POP-UP -------*/
+.app-wrap .main .pop-up {
+  position: absolute;
+  width: 80vw;
+  height: 70vh;
+
+  z-index: 2;
+
+  transition: 0.5s ease-in-out;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background-color: var(--main-blocks-bg-color);
+
+  white-space: pre-line;
+  padding: 3vh;
+  border-radius: 0.5vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.app-wrap .main .pop-up button {
+  background-color: transparent;
+  border: none;
+}
+
+.app-wrap .main .pop-up .content {
+  max-height: 60vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 /*------- FOOTER -------*/
 .app-wrap .footer {
   width: 90%; 
   height: 10vh;
+
+  font-size: 0.8em;
 
   display: flex;
   flex-direction: row;
@@ -240,8 +326,47 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  align-items: center;
 
-  font-size: 0.8em;
   color:var(--main--font-gray-color);
+}
+
+.app-wrap .footer .socials {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+}
+
+.app-wrap .footer .socials div { /* item */
+  width: auto;
+  max-width: 6vw;
+  height: 2.5vh;
+
+  display: flex;
+  flex-direction: row;
+  margin-right: 1.2vw;
+}
+.app-wrap .footer .socials div a {
+  color:var(--main-font-color);
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding-right: 0.2vw;
+}
+
+.app-wrap .footer .socials div a:hover{
+  color:var(--main-accents-colors);
+  text-decoration: none;
+}
+
+.app-wrap .footer .socials div a img {
+  margin-right: 0.2vw;
 }

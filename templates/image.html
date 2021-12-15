@@ -10,61 +10,123 @@
 <body>
   <div class="app-wrap">
     
+    <div class="bg" id="background"></div>
+
     <div class="header">        
       <form method="post">
         <input class="btn" value="image wizard" type="submit" name="go_home_button">
       </form>
     </div>
-      
-    <div class="readForm">
-      <div class="text">
-        <div>
-         {{ text }}
-           <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lorem at leo sagittis laoreet. In mollis felis augue, eu lobortis purus molestie at. Donec ut diam dolor. Donec fringilla eros urna, vel convallis ligula tempus at. Nulla non rhoncus sem, nec placerat justo. In rhoncus iaculis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed consequat, ante nec hendrerit aliquet, est erat hendrerit nunc, ac pulvinar magna orci nec magna. Etiam maximus dolor ut erat efficitur porta. Nunc imperdiet sagittis eleifend.
 
-Nullam a neque in justo congue vulputate vitae in mauris. Aenean dignissim ornare libero, in mattis odio venenatis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer finibus elementum nisl sit amet consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut arcu turpis, rutrum semper ex vel, imperdiet venenatis neque. Vestibulum in justo a mi fringilla ultricies. Nulla porta bibendum leo. Etiam risus augue, blandit ut semper et, dapibus non massa.
+    <div class="main" id="main">
+      <button class="full-win-but" onclick="togglePopup();">
+        full window
+      </button>
 
-Quisque vitae auctor dolor, congue egestas nisi. Quisque eu consequat magna, viverra blandit odio. Donec at pulvinar nisi. Duis sed ipsum auctor dui cursus sollicitudin a sit amet mauris. Praesent luctus et metus in porta. Donec ac nisi vitae augue viverra condimentum in ut lorem. Etiam risus eros, pharetra id libero ut, faucibus efficitur urna. Fusce nec fringilla sem. Aliquam erat volutpat. Etiam dictum, magna in placerat molestie, arcu enim placerat nisl, eu tincidunt enim enim sit amet turpis. Curabitur tincidunt auctor lacus non mattis. Etiam viverra placerat mauris, porta facilisis eros maximus a. Aenean in mauris non lacus feugiat blandit nec nec dolor.
+      <div class="pop-up" id="pop-up">
 
-Praesent purus augue, varius ut leo ut, tincidunt placerat massa. Fusce sagittis justo ac egestas consequat. Nulla tempor nisl non velit semper, in elementum erat pharetra. Mauris aliquet suscipit est, non euismod leo tincidunt ac. Nam lorem nulla, sagittis non pharetra eget, porttitor ut nibh. Vestibulum quis molestie diam. Aenean nec felis quis erat consequat fermentum ultrices ut tortor. -->
+        <button class="close-but" onclick="closePopup();" id="close-but">
+          <img src="../static/img/close_but.png" style="width: 2vh;">
+        </button>
+
+        <div class="content" id="pop-up-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lorem at leo sagittis laoreet. In mollis felis augue, eu lobortis purus molestie at. Donec ut diam dolor. Donec fringilla eros urna, vel convallis ligula tempus at. Nulla non rhoncus sem, nec placerat justo. In rhoncus iaculis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed consequat, ante nec hendrerit aliquet, est erat hendrerit nunc, ac pulvinar magna orci nec magna. Etiam maximus dolor ut erat efficitur porta. Nunc imperdiet sagittis eleifend.
+    
+          Nullam a neque in justo congue vulputate vitae in mauris. Aenean dignissim ornare libero, in mattis odio venenatis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer finibus elementum nisl sit amet consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut arcu turpis, rutrum semper ex vel, imperdiet venenatis neque. Vestibulum in justo a mi fringilla ultricies. Nulla porta bibendum leo. Etiam risus augue, blandit ut semper et, dapibus non massa.
+    
+          Quisque vitae auctor dolor, congue egestas nisi. Quisque eu consequat magna, viverra blandit odio. Donec at pulvinar nisi. Duis sed ipsum auctor dui cursus sollicitudin a sit amet mauris. Praesent luctus et metus in porta. Donec ac nisi vitae augue viverra condimentum in ut lorem. Etiam risus eros, pharetra id libero ut, faucibus efficitur urna. Fusce nec fringilla sem. Aliquam erat volutpat. Etiam dictum, magna in placerat molestie, arcu enim placerat nisl, eu tincidunt enim enim sit amet turpis. Curabitur tincidunt auctor lacus non mattis. Etiam viverra placerat mauris, porta facilisis eros maximus a. Aenean in mauris non lacus feugiat blandit nec nec dolor.
+    
+          raesent purus augue, varius ut leo ut, tincidunt placerat massa. Fusce sagittis justo ac egestas consequat. Nulla tempor nisl non velit semper, in elementum erat pharetra. Mauris aliquet suscipit est, non euismod leo tincidunt ac. Nam lorem nulla, sagittis non pharetra eget, porttitor ut nibh. Vestibulum quis molestie diam. Aenean nec felis quis erat consequat fermentum ultrices ut tortor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lorem at leo sagittis laoreet. In mollis felis augue, eu lobortis purus molestie at. Donec ut diam dolor. Donec fringilla eros urna, vel convallis ligula tempus at. Nulla non rhoncus sem, nec placerat justo. In rhoncus iaculis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed consequat, ante nec hendrerit aliquet, est erat hendrerit nunc, ac pulvinar magna orci nec magna. Etiam maximus dolor ut erat efficitur porta. Nunc imperdiet sagittis eleifend.
+    
+          Nullam a neque in justo congue vulputate vitae in mauris. Aenean dignissim ornare libero, in mattis odio venenatis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer finibus elementum nisl sit amet consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut arcu turpis, rutrum semper ex vel, imperdiet venenatis neque. Vestibulum in justo a mi fringilla ultricies. Nulla porta bibendum leo. Etiam risus augue, blandit ut semper et, dapibus non massa.
+    
+          Quisque vitae auctor dolor, congue egestas nisi. Quisque eu consequat magna, viverra blandit odio. Donec at pulvinar nisi. Duis sed ipsum auctor dui cursus sollicitudin a sit amet mauris. Praesent luctus et metus in porta. Donec ac nisi vitae augue viverra condimentum in ut lorem. Etiam risus eros, pharetra id libero ut, faucibus efficitur urna. Fusce nec fringilla sem. Aliquam erat volutpat. Etiam dictum, magna in placerat molestie, arcu enim placerat nisl, eu tincidunt enim enim sit amet turpis. Curabitur tincidunt auctor lacus non mattis. Etiam viverra placerat mauris, porta facilisis eros maximus a. Aenean in mauris non lacus feugiat blandit nec nec dolor.
+    
+          raesent purus augue, varius ut leo ut, tincidunt placerat massa. Fusce sagittis justo ac egestas consequat. Nulla tempor nisl non velit semper, in elementum erat pharetra. Mauris aliquet suscipit est, non euismod leo tincidunt ac. Nam lorem nulla, sagittis non pharetra eget, porttitor ut nibh. Vestibulum quis molestie diam. Aenean nec felis quis erat consequat fermentum ultrices ut tortor.
         </div>
+
       </div>
-
-      <form class="download-form" method="post">
-        <input type="submit" value="download .txt file with your text" name="download_txt_file"/>
-        <input type="submit" value="copy your text to clipboard" name="copy_to_clipboard"/>
-      </form>
-
-    </div>
-
-    <div class="info">
-      <h2>Do you have any troubles?</h2>
-      <button id="tell_more_button">Click here to tell more about problem</button>
-
-      <form class="problem-form" id="problem-form" method="post">
-        <div>
-          <label>What is your name?</label><br>
-          <input type="text" name="name" placeholder="David Smolenski">
+      <div class="readForm" id="readForm">
+        <div class="text">
+          <div id="image-content">
+           {{ text }}
+            <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lorem at leo sagittis laoreet. In mollis felis augue, eu lobortis purus molestie at. Donec ut diam dolor. Donec fringilla eros urna, vel convallis ligula tempus at. Nulla non rhoncus sem, nec placerat justo. In rhoncus iaculis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed consequat, ante nec hendrerit aliquet, est erat hendrerit nunc, ac pulvinar magna orci nec magna. Etiam maximus dolor ut erat efficitur porta. Nunc imperdiet sagittis eleifend.
+  
+             Nullam a neque in justo congue vulputate vitae in mauris. Aenean dignissim ornare libero, in mattis odio venenatis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer finibus elementum nisl sit amet consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut arcu turpis, rutrum semper ex vel, imperdiet venenatis neque. Vestibulum in justo a mi fringilla ultricies. Nulla porta bibendum leo. Etiam risus augue, blandit ut semper et, dapibus non massa.
+  
+              Quisque vitae auctor dolor, congue egestas nisi. Quisque eu consequat magna, viverra blandit odio. Donec at pulvinar nisi. Duis sed ipsum auctor dui cursus sollicitudin a sit amet mauris. Praesent luctus et metus in porta. Donec ac nisi vitae augue viverra condimentum in ut lorem. Etiam risus eros, pharetra id libero ut, faucibus efficitur urna. Fusce nec fringilla sem. Aliquam erat volutpat. Etiam dictum, magna in placerat molestie, arcu enim placerat nisl, eu tincidunt enim enim sit amet turpis. Curabitur tincidunt auctor lacus non mattis. Etiam viverra placerat mauris, porta facilisis eros maximus a. Aenean in mauris non lacus feugiat blandit nec nec dolor.
+  
+              Praesent purus augue, varius ut leo ut, tincidunt placerat massa. Fusce sagittis justo ac egestas consequat. Nulla tempor nisl non velit semper, in elementum erat pharetra. Mauris aliquet suscipit est, non euismod leo tincidunt ac. Nam lorem nulla, sagittis non pharetra eget, porttitor ut nibh. Vestibulum quis molestie diam. Aenean nec felis quis erat consequat fermentum ultrices ut tortor. -->
+          </div>
         </div>
-
-        <div>
-          <label>Describe your problem </label><br>
-          <textarea name="problem"></textarea>
-        </div>
-      </form>
-
+  
+        <form class="download-form" method="post">
+          <input type="submit" value="download .txt file with your text" name="download_txt_file"/>
+          <input type="submit" value="copy your text to clipboard" name="copy_to_clipboard"/>
+        </form>
+      </div>
+  
+      <div class="info" id="info">
+        <h2>Do you have any troubles?</h2>
+        <button id="tell_more_button">Click here to tell more about problem</button>
+  
+        <form class="problem-form" id="problem-form" method="post">
+          <div>
+            <label>What is your name?</label><br>
+            <input type="text" name="name" placeholder="David Smolenski">
+          </div>
+  
+          <div>
+            <label>Describe your problem </label><br>
+            <textarea name="problem"></textarea>
+          </div>
+        </form>
+  
+      </div>
     </div>
 
     <div class="footer">
-
       <div class="credits">
           2021 Golden Code Dev ®
       </div>
 
       <div class="socials">
+          <div>
+              <a href="mailto:kuba.toporek@gmail.com" target="_blank" class="item">
+                  <img src="../static/img/mail.png" style="width: 1.8vh;">
+                  SUPPORT
+              </a>
+          </div>
+          
+          <div>
+              <a href="https://discord.gg/28xmjgNA" target="_blank" class="item">
+                  <img src="../static/img/discord.png" style="width: 1.8vh;">
+                  DISCORD
+              </a>
+          </div>
+
+          <div>
+              <a href="https://www.instagram.com/goldencodegamedev/" target="_blank" class="item">
+                  <img src="../static/img/instagram.png" style="width: 1.6vh;">
+                  INSTAGRAM
+              </a>
+          </div>
+          <div>
+              <a href="https://www.facebook.com/goldencodegamedev" target="_blank" class="item">
+                  <img src="../static/img/facebook.png"style="width: 1.3vh;">
+                  FACEBOOK
+              </a>
+
+          </div>
+          <div>
+              <a href="https://github.com/kubaTp" target="_blank" class="item">
+                  <img src="../static/img/code.png" style="width: 1.7vh;">
+                  GITHUB
+              </a>
+          </div>
 
       </div>
-
     </div>
 
   </div>

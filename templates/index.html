@@ -1,11 +1,22 @@
 <!doctype html>
 <html>
     <head>
-        <title>image wizard &#8226 home</title> 
+        <title>image wizard &#8226 home</title>
+        <!--    
+        ___  _____ ______   ________  ________  _______           ___       __   ___  ________  ________  ________  ________  ________     
+        |\  \|\   _ \  _   \|\   __  \|\   ____\|\  ___ \         |\  \     |\  \|\  \|\_____  \|\_____  \|\   __  \|\   __  \|\   ___ \    
+        \ \  \ \  \\\__\ \  \ \  \|\  \ \  \___|\ \   __/|        \ \  \    \ \  \ \  \\|___/  /|\|___/  /\ \  \|\  \ \  \|\  \ \  \_|\ \   
+         \ \  \ \  \\|__| \  \ \   __  \ \  \  __\ \  \_|/__       \ \  \  __\ \  \ \  \   /  / /    /  / /\ \   __  \ \   _  _\ \  \ \\ \  
+          \ \  \ \  \    \ \  \ \  \ \  \ \  \|\  \ \  \_|\ \       \ \  \|\__\_\  \ \  \ /  /_/__  /  /_/__\ \  \ \  \ \  \\  \\ \  \_\\ \ 
+           \ \__\ \__\    \ \__\ \__\ \__\ \_______\ \_______\       \ \____________\ \__\\________\\________\ \__\ \__\ \__\\ _\\ \_______\
+            \|__|\|__|     \|__|\|__|\|__|\|_______|\|_______|        \|____________|\|__|\|_______|\|_______|\|__|\|__|\|__|\|__|\|_______|                                                                                                                                                                                                                                                                                                                                                                                        
+        -->
         <meta charset=utf-8>
         <link rel="stylesheet" href="../static/css/main.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
         <script type="text/javascript" src="../static/scripts/main.js"></script>
+        <script type="text/javascript" src="../static/scripts/general.js"></script>
     </head>
     <body>
 
@@ -15,19 +26,17 @@
                 image wizard
             </div>
 
-            <div class="readForm">
-
-                <!-- INPUT FILE IMAGE -->
-                <div class="extensionWarning" id="extension_warning">
-                    extension .. is not supported
-                </div>
-                
+            <div class="readForm">                
                 <!--<div class="droparea">Drop your file here</div>-->
                 <form action="/read-image/" onsubmit="return onSubmit();" method="post" name="read-image" enctype="multipart/form-data">
                     <div class="image-form">
+                        <!-- INPUT FILE IMAGE -->
+                        <div class="extensionWarning" id="extension_warning">
+                            extension .. is not supported
+                        </div>
                         <div class="chooseImage">
                             <input value="Choose your file" onchange="updateValue()" type="file" name="file" id="file-upload">                        
-                            <label for="file-upload"><img src="../static/img/add image.png">&nbspchoose a image</label>                        
+                            <label for="file-upload"><img src="../static/img/file.png">&nbspchoose image</label>                        
                         </div>
 
                         <!-- IMAGE NAME -->
@@ -69,9 +78,44 @@
                 </div>
 
                 <div class="socials">
+                    <div>
+                        <a href="mailto:kuba.toporek@gmail.com" target="_blank" class="item">
+                            <img src="../static/img/mail.png" style="width: 1.8vh;">
+                            SUPPORT
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <a href="https://discord.gg/28xmjgNA" target="_blank" class="item">
+                            <img src="../static/img/discord.png" style="width: 1.8vh;">
+                            DISCORD
+                        </a>
+                    </div>
+    
+                    <div>
+                        <a href="https://www.instagram.com/goldencodegamedev/" target="_blank" class="item">
+                            <img src="../static/img/instagram.png" style="width: 1.6vh;">
+                            INSTAGRAM
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.facebook.com/goldencodegamedev" target="_blank" class="item">
+                            <img src="../static/img/facebook.png"style="width: 1.3vh;">
+                            FACEBOOK
+                        </a>
+        
+                    </div>
+                    <div>
+                        <a href="https://github.com/kubaTp" target="_blank" class="item">
+                            <img src="../static/img/code.png" style="width: 1.7vh;">
+                            GITHUB
+                        </a>
+                    </div>
 
                 </div>
+
             </div>
+
         </div>
 
     </body>

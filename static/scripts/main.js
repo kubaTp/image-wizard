@@ -47,7 +47,7 @@ function updateValue() {
                 document.getElementById("print_text").style.opacity = "1";
                 document.getElementById("show_data").style.opacity = "1";
 
-                if(extensionInterval !== null) { clearInterval(extensionInterval); }
+                if((typeof extensionInterval !== "undefined") && (extensionInterval !== null)) { clearInterval(extensionInterval); }
                 
                 document.getElementById("extension_warning").style.opacity = `0`; 
                 document.getElementById("extension_warning").style.transition = "0.5s";
