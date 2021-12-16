@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 from ocr_core import FILE_DATA, OCR_CORE
 from os.path import exists
 import pyperclip as pc
+import mimetypes
+
+mimetypes.add_type('application/javascript', '.mjs')
 
 app = Flask(__name__)
 
