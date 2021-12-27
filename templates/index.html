@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
-    <head>
-        <title>image wizard &#8226 home</title>
-        <!--    
+    <!--    
         ___  _____ ______   ________  ________  _______           ___       __   ___  ________  ________  ________  ________  ________     
         |\  \|\   _ \  _   \|\   __  \|\   ____\|\  ___ \         |\  \     |\  \|\  \|\_____  \|\_____  \|\   __  \|\   __  \|\   ___ \    
         \ \  \ \  \\\__\ \  \ \  \|\  \ \  \___|\ \   __/|        \ \  \    \ \  \ \  \\|___/  /|\|___/  /\ \  \|\  \ \  \|\  \ \  \_|\ \   
@@ -10,20 +8,23 @@
           \ \  \ \  \    \ \  \ \  \ \  \ \  \|\  \ \  \_|\ \       \ \  \|\__\_\  \ \  \ /  /_/__  /  /_/__\ \  \ \  \ \  \\  \\ \  \_\\ \ 
            \ \__\ \__\    \ \__\ \__\ \__\ \_______\ \_______\       \ \____________\ \__\\________\\________\ \__\ \__\ \__\\ _\\ \_______\
             \|__|\|__|     \|__|\|__|\|__|\|_______|\|_______|        \|____________|\|__|\|_______|\|_______|\|__|\|__|\|__|\|__|\|_______|                                                                                                                                                                                                                                                                                                                                                                                        
-        -->
+    -->
+    <head>
+        <title>image wizard &#8226 home</title>    
         <meta charset=utf-8>
         <link rel="stylesheet" href="../static/css/main.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
         <script type="text/javascript" src="../static/scripts/main.js"></script>
-        <script type="text/javascript" src="../static/scripts/general.js"></script>
+        <link rel="icon" href="../static/img/chuj-czopka.png">
     </head>
     <body>
 
         <div class="app-wrap">
 
             <div class="header" style="font-size: 2.0em;">
-                image wizard
+                <!--<img src="../static/img/logo.png">-->
+                image wizard            
             </div>
 
             <div class="readForm">                
@@ -34,7 +35,7 @@
                         <div class="extensionWarning" id="extension_warning">
                             extension .. is not supported
                         </div>
-                        <div class="chooseImage">
+                        <div class="chooseImage" id="chooseImage">
                             <input value="Choose your file" onchange="updateValue()" type="file" name="file" id="file-upload">                        
                             <label for="file-upload"><img src="../static/img/file.png">&nbspchoose image</label>                        
                         </div>
@@ -74,7 +75,7 @@
             <div class="footer">
 
                 <div class="credits">
-                    2021 Golden Code Dev ®
+                    <a href="https://www.goldencodedev.pl/" target="_blank" style="transition: 0.5s;"> 2021 Golden Code Dev ® </a>
                 </div>
 
                 <div class="socials">

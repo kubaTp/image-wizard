@@ -1,5 +1,54 @@
 window.onload = () => {
     let extensionInterval = null;
+
+    const items = document.getElementsByClassName('item');
+
+    for(var i = 0; i < items.length; i++)
+    {
+        let item = items[i];
+ 
+        item.addEventListener("mouseover", () => {            
+            src = item.children[0].src;            
+            //http://127.0.0.1:5000/static/img/mail.png
+            var regex = new RegExp(/http:\/\/127.0.0.1:5000\/static\/img\/(.*?).png/);
+            const rootName = regex.exec(src)[1];
+            const newName = rootName + "_hover.png";
+            //console.log(newName);
+
+            item.children[0].src = "http://127.0.0.1:5000/static/img/" + newName;
+        })
+
+        item.addEventListener("mouseout", () => {            
+            src = item.children[0].src;
+            //http://127.0.0.1:5000/static/img/mail.png
+            var regex = new RegExp(/http:\/\/127.0.0.1:5000\/static\/img\/(.*?)_hover.png/);
+            const newName = regex.exec(src)[1] + ".png";
+
+            item.children[0].src = "http://127.0.0.1:5000/static/img/" + newName;            
+        })
+    }
+
+
+    // chooseImage interval
+    /*
+    let chooseImageEl = document.getElementById("chooseImage");
+    const normalbg = window.getComputedStyle(chooseImageEl).getPropertyValue("backgroundColor");
+    chooseImageEl.style.transition = "2s ease-in-out";
+
+    window.setInterval(() => {
+        if(chooseImageEl.style.backgroundColor !== "rgba(255, 120, 31, 0.7)")
+        {
+            chooseImageEl.style.backgroundColor = "rgba(255, 120, 31, 0.7)";
+        }
+        else
+        {
+            chooseImageEl.style.backgroundColor = normalbg;
+        }
+
+
+        console.log(chooseImageEl.style.backgroundColor);
+
+    }, 2000);*/
 }
 
 onSubmit = () => {

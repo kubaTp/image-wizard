@@ -54,6 +54,8 @@ togglePopup = () => {
     document.getElementById("background").style.opacity = "1";
 
     document.getElementById("pop-up-content").innerText = document.getElementById("image-content").innerText;
+
+    return false;
 }
 
 closePopup = () => {
