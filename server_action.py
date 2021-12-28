@@ -19,13 +19,13 @@ def fileService(timeDelta : float):
 
             dif = (time.mktime(local_date) - time.mktime(doc_date_of_creation)) / 60 # gives dif in minutes
             dif = round(dif, 2)
-            print("time dif is : " + str(dif))
+            # print("time dif is : " + str(dif))
 
             if dif > timeDelta:
                 os.remove(doc_path)
                 print("file " + file + " was removed")
 
-        time.sleep(10)
+        time.sleep(6000)
 
 
 

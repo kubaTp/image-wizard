@@ -11,7 +11,7 @@ class ImageWizzardFlaskApp(Flask):
   def run(self, host="127.0.0.1", port=5000, debug=None, load_dotenv=True, **options):
     if not self.debug or os.getenv('WERKZEUG_RUN_MAIN') == 'true':
       with self.app_context():
-        file_thread = Thread(target=fileService, args=(1, ), daemon=True)
+        file_thread = Thread(target=fileService, args=(360, ), daemon=True) # if a file is older than 6 hours, delete it
         file_thread.start()
 
     super(ImageWizzardFlaskApp, self).run(host=host, port=port, debug=debug, load_dotenv=load_dotenv, **options)
