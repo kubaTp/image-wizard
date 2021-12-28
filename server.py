@@ -4,11 +4,19 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 from ocr_core import FILE_DATA, OCR_CORE
 from os.path import exists
 import pyperclip as pc
-import mimetypes
+from server_action import fileService
+from threading import Thread
 
-mimetypes.add_type('application/javascript', '.mjs')
+class ImageWizzardFlaskApp(Flask):
+  def run(self, host="127.0.0.1", port=5000, debug=None, load_dotenv=True, **options):
+    if not self.debug or os.getenv('WERKZEUG_RUN_MAIN') == 'true':
+      with self.app_context():
+        file_thread = Thread(target=fileService, args=(1, ), daemon=True)
+        file_thread.start()
 
-app = Flask(__name__)
+    super(ImageWizzardFlaskApp, self).run(host=host, port=port, debug=debug, load_dotenv=load_dotenv, **options)
+
+app = ImageWizzardFlaskApp(__name__)
 
 # main redirects to home
 @app.route('/')
@@ -63,4 +71,4 @@ def my_link():
     #return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
-  app.run(debug = True)
+  app.run(port = 3000)

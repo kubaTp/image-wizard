@@ -57,6 +57,17 @@ body {
 
   padding-left: 20vw;
   padding-top: 2vh;
+
+  opacity: 0;
+  transform: translateX(-40%);
+  animation: fadeInAnim 1.5s ease-in-out forwards,
+  moveInAnim 1.5s ease-in-out forwards;
+}
+
+@keyframes moveInAnim {
+  to {
+    transform: translate(0);
+  }
 }
 
 /*------- READFORM -------*/
@@ -159,7 +170,16 @@ body {
   color:white;
   border-radius: 0.5vh;
   transition: 0.5s;
+
+  opacity: 0;
+  animation: fadeInAnim 1.5s ease-in-out forwards;
 }
+@keyframes fadeInAnim {
+  to {
+    opacity: 1;
+  }
+}
+
 
 .app-wrap .readForm .image-form .chooseImage:hover {
 
@@ -290,4 +310,13 @@ body {
 
 .app-wrap .footer .socials div a img {
   margin-right: 0.2vw;
+}
+
+a{
+  color:var(--main-font-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color:var(--main-accents-colors);
 }
